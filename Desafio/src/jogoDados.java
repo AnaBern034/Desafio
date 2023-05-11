@@ -3,11 +3,25 @@ import java.util.Scanner;
 
 public class jogoDados {
     public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        //System.out.println(jogo());
+        String opcao;
+        int acertos = 0;
+        int erros = 0;
+        int recebeAcertos=0;
 
-        System.out.println(jogo());
+        do {
+            recebeAcertos=jogo(erros);
+            erros = recebeAcertos + erros;
+            System.out.println(erros);
+           // jogo();
+            opcao=ler.next();
+
+        }while (opcao.equals("sim"));
 
 
-        }public static int jogo(){ Scanner ler = new Scanner(System.in);
+
+        }public static int jogo(int erros){ Scanner ler = new Scanner(System.in);
         int acertos = 0;
         int erros = 0;
 
@@ -48,14 +62,14 @@ public class jogoDados {
         System.out.println("========================");
         System.out.println("Deseja jogar novamente?");
         System.out.println("========================");
-        String opção = ler.next();
+       // String opção = ler.next();
 
-        if (opção == "sim") {
+        /*if (opção == "sim") {
             return jogo();
         } else if (opção == "não") {
             System.exit(0);
-        }
-        return jogo();
+        }*/
+        return erros;
 
     }
 
